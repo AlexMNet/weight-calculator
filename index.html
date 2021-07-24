@@ -4,6 +4,16 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="apple-touch-icon"
+      href="/barbelll-icon.png"
+      width="150"
+      height="150"
+    />
+    <link
+      rel="icon"
+      href="https://static.thenounproject.com/png/149859-200.png"
+    />
 
     <!-- Bootstrap CSS -->
     <link
@@ -45,7 +55,7 @@
           <div class="card-body">
             <form>
               <div class="mb-3">
-                <label for="totalWeight" class="form-label"
+                <label for="inputWeight" class="form-label"
                   >Total Weight:</label
                 >
                 <input
@@ -53,7 +63,7 @@
                   class="form-control totalWeight"
                   id="totalWeight"
                   aria-describedby="totalWeight"
-                  placeholder="225"
+                  value="225"
                 />
               </div>
               <div class="mb-3">
@@ -116,7 +126,14 @@
                   -5lbs
                 </button>
               </div>
-              <small>Total Weight: <span id="totalWeightSpan"></span>lbs</small>
+              <small
+                >Adjusted Weight: <span id="totalWeightSpan"></span>lbs</small
+              >
+              <br />
+              <!-- <small
+                >Calculated Weight:
+                <span id="calculatedWeight"></span>lbs</small
+              > -->
               <ul class="list-group">
                 <li class="list-group-item">
                   45lb <span id="fortyFive" class="badge bg-primary"></span>
@@ -146,106 +163,6 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <script>
-      const form = document.querySelector("form");
-      const results = document.querySelector(".results");
-      const resetBtn = document.querySelector(".reset");
-      const incrementBtn = document.getElementById("incrementBtn");
-      const decrementBtn = document.getElementById("decrementBtn");
-      let totalWeight = document.getElementById("totalWeight");
-      let percentage = document.getElementById("percentage");
-      let barWeight = document.getElementById("barWeight");
-      let totalWeightSpan = document.getElementById("totalWeightSpan");
-      let fortyFive = document.getElementById("fortyFive");
-      let twentyFive = document.getElementById("twentyFive");
-      let ten = document.getElementById("ten");
-      let five = document.getElementById("five");
-      let twoPointFive = document.getElementById("twoPointFive");
-      const badges = document.querySelectorAll(".badge");
-      // let lb45;
-      // let lb25;
-      // let lb10;
-      // let lb5;
-      // let lb2andhalf;
-      // let plateWeight;
-      let overallWeight;
-
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-
-        overallWeight =
-          Math.round((totalWeight.value * (percentage.value / 100)) / 5) * 5;
-        const calcWeights = () => {
-          totalWeightSpan.textContent = overallWeight;
-
-          if (overallWeight < 45) {
-            alert("Weight Must Be over 45lbs");
-            window.location.reload();
-          }
-
-          let plateWeight = overallWeight - barWeight.value;
-
-          //Calucate 45s
-          let lb45 = Math.floor(plateWeight / 90);
-          plateWeight = plateWeight - lb45 * 90;
-
-          let lb25 = Math.floor(plateWeight / 50);
-          plateWeight = plateWeight - lb25 * 50;
-
-          let lb10 = Math.floor(plateWeight / 20);
-          plateWeight = plateWeight - lb10 * 20;
-
-          let lb5 = Math.floor(plateWeight / 10);
-          plateWeight = plateWeight - lb5 * 10;
-
-          let lb2andhalf = Math.floor(plateWeight / 5);
-          plateWeight = plateWeight - lb2andhalf * 5;
-
-          console.log(lb45, lb25, lb10, lb5, lb2andhalf, "TOP");
-
-          lb45 > 0 ? (fortyFive.innerText = lb45) : null;
-          lb25 > 0 ? (twentyFive.innerText = lb25) : null;
-          lb10 > 0 ? (ten.innerText = lb10) : null;
-          lb5 > 0 ? (five.innerText = lb5) : null;
-          lb2andhalf > 0 ? (twoPointFive.innerText = lb2andhalf) : null;
-        };
-
-        calcWeights();
-
-        incrementBtn.addEventListener("click", () => {
-          totalWeight.value = overallWeight = overallWeight + 5;
-
-          lb45 = lb25 = lb10 = lb5 = lb2andhalf = plateWeight = 0;
-
-          console.log(lb45, lb25, lb10, lb5, lb2andhalf, "inc");
-
-          badges.forEach((badge) => {
-            badge.innerText = "";
-          });
-
-          calcWeights();
-        });
-
-        decrementBtn.addEventListener("click", () => {
-          totalWeight.value = overallWeight = overallWeight - 5;
-
-          lb45 = lb25 = lb10 = lb5 = lb2andhalf = plateWeight = 0;
-
-          badges.forEach((badge) => {
-            badge.innerText = "";
-          });
-
-          console.log(lb45, lb25, lb10, lb5, lb2andhalf, "dec");
-
-          calcWeights();
-        });
-
-        results.classList.remove("hide");
-      });
-
-      resetBtn.addEventListener("click", () => {
-        window.location.reload();
-      });
-    </script>
+    <script src="index.js"></script>
   </body>
 </html>
