@@ -6,14 +6,14 @@ const decrementBtn = document.getElementById("decrementBtn");
 let inputWeight = document.getElementById("totalWeight");
 let percentage = document.getElementById("percentage");
 let barWeight = document.getElementById("barWeight");
-let totalWeightSpan = document.getElementById("totalWeightSpan");
+let finalWeightSpan = document.getElementById("finalWeightSpan");
 let fortyFive = document.getElementById("fortyFive");
 let twentyFive = document.getElementById("twentyFive");
 let ten = document.getElementById("ten");
 let five = document.getElementById("five");
 let twoPointFive = document.getElementById("twoPointFive");
 const badges = document.querySelectorAll(".badge");
-let calculatedWeightSpan = document.getElementById("calculatedWeight");
+let targetWeightSpan = document.getElementById("targetWeightSpan");
 let overallWeight;
 
 form.addEventListener("submit", (e) => {
@@ -21,12 +21,32 @@ form.addEventListener("submit", (e) => {
 
   clearBadges();
 
-  overallWeight =
-    Math.round((inputWeight.value * (percentage.value / 100)) / 5) * 5;
+  // overallWeight =
+  //   Math.round((inputWeight.value * (percentage.value / 100)) / 5) * 5;
+
+  targetWeight = Math.floor(inputWeight.value * (percentage.value / 100));
+  console.log(targetWeight);
+
+  overallWeight = Math.floor(inputWeight.value * (percentage.value / 100));
+
+  if (overallWeight % 10 < 5 && overallWeight % 10 > 0) {
+    overallWeight = overallWeight - (overallWeight % 10);
+  }
+
+  if (overallWeight % 10 > 5 && overallWeight % 10 < 10) {
+    overallWeight = overallWeight - ((overallWeight % 10) - 5);
+  }
+
+  if (overallWeight < 45) {
+    alert("Weight Must Be over 45lbs");
+    return;
+  }
 
   calcWeights();
 
   results.classList.remove("hide");
+
+  window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
 });
 
 incrementBtn.addEventListener("click", () => {
@@ -46,16 +66,12 @@ decrementBtn.addEventListener("click", () => {
 });
 
 resetBtn.addEventListener("click", () => {
-  window.location.reload();
+  reset();
 });
 
 const calcWeights = () => {
-  totalWeightSpan.textContent = overallWeight;
-
-  if (overallWeight < 45) {
-    alert("Weight Must Be over 45lbs");
-    window.location.reload();
-  }
+  finalWeightSpan.textContent = overallWeight;
+  targetWeightSpan.textContent = targetWeight;
 
   let plateWeight = overallWeight - barWeight.value;
 
@@ -86,4 +102,10 @@ const clearBadges = () => {
   badges.forEach((badge) => {
     badge.innerText = "";
   });
+};
+
+const reset = () => {
+  results.classList.add("hide");
+  overallWeight = 0;
+  clearBadges();
 };

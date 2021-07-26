@@ -35,6 +35,9 @@
     />
 
     <style>
+      html {
+        scroll-behavior: smooth;
+      }
       .hide {
         display: none;
       }
@@ -71,7 +74,7 @@
                   class="form-control totalWeight"
                   id="totalWeight"
                   aria-describedby="totalWeight"
-                  value="225"
+                  placeholder="225"
                 />
               </div>
               <div class="mb-3">
@@ -135,13 +138,14 @@
                 </button>
               </div>
               <small
-                >Adjusted Weight: <span id="totalWeightSpan"></span>lbs</small
-              >
+                >Target Weight:
+                <span class="text-secondary" id="targetWeightSpan"></span
+              ></small>
               <br />
-              <!-- <small
-                >Calculated Weight:
-                <span id="calculatedWeight"></span>lbs</small
-              > -->
+              <small class="lead"
+                >Final Weight:
+                <span class="text-success" id="finalWeightSpan"></span
+              ></small>
               <ul class="list-group">
                 <li class="list-group-item">
                   45lb <span id="fortyFive" class="badge bg-primary"></span>
