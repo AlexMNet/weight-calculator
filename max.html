@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="./barbelll-icon.png"
+      width="150"
+      height="150"
+    />
+    <link
+      rel="icon"
+      href="https://static.thenounproject.com/png/149859-200.png"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- StyleSheet -->
+    <link rel="stylesheet" href="/styles.css" />
+
+    <title>1 Rep Max</title>
+  </head>
+  <body>
+    <div class="container" style="max-width: 760px">
+      <div class="row">
+        <div class="col align-self-center text-center">
+          <h1 class="display-6">1 Rep Max</h1>
+          <i class="fas fa-dumbbell fa-2x"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card shadow-sm p-3 mb-5 bg-white rounded">
+          <div class="card-body">
+            <form>
+              <div class="mb-3">
+                <label for="inputWeight" class="form-label">Weight:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputWeight"
+                  aria-describedby="totalWeight"
+                  placeholder="weight in lbs"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="inputReps" class="form-label">Reps:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputReps"
+                  aria-describedby="totalWeight"
+                  placeholder="reps"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">Caluclate</button>
+              <button type="reset" class="reset btn btn-danger">Reset</button>
+            </form>
+            <div class="card-body mt-2 results hide">
+              <h3 class="text-center">1 Rep Max</h3>
+              <p class="text-center lead text-primary">
+                <span class="lead resultText"></span> lb
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col align-self-center text-center">
+          <a class="btn btn-outline-dark" href="/index.html"
+            >Plate Calculator</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="reps.js"></script>
+  </body>
+</html>

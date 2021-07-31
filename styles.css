@@ -1,0 +1,14 @@
+html {
+  scroll-behavior: smooth;
+}
+.hide {
+  display: none;
+}
+
+.fa-dumbbell {
+  color: rgb(36, 104, 230);
+}
+
+button {
+  touch-action: manipulation;
+}
