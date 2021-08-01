@@ -48,7 +48,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="card shadow-sm p-3 mb-5 bg-white rounded">
+        <div class="card shadow-sm p-3 mb-5 rounded">
           <div class="card-body">
             <form>
               <div class="mb-3">
@@ -102,26 +102,30 @@
                   value="45"
                 />
               </div>
-              <button type="submit" class="btn btn-primary">Caluclate</button>
-              <button type="reset" class="reset btn btn-danger">Reset</button>
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Caluclate</button>
+                <button type="reset" class="reset btn btn-danger">Reset</button>
+              </div>
             </form>
-            <div class="card-body mt-2 results hide">
+            <div class="card-body mt-2 results hide text-center">
               <h3>Plates</h3>
               <div class="mb-3">
-                <button
-                  type="button"
-                  id="incrementBtn"
-                  class="btn btn-primary btn-sm"
-                >
-                  +5lbs
-                </button>
-                <button
-                  type="button"
-                  id="decrementBtn"
-                  class="btn btn-secondary btn-sm"
-                >
-                  -5lbs
-                </button>
+                <div class="d-grid gap-2">
+                  <button
+                    type="button"
+                    id="incrementBtn"
+                    class="btn btn-primary btn-sm"
+                  >
+                    +5lbs
+                  </button>
+                  <button
+                    type="button"
+                    id="decrementBtn"
+                    class="btn btn-secondary btn-sm"
+                  >
+                    -5lbs
+                  </button>
+                </div>
               </div>
               <small
                 >Target Weight:
@@ -155,7 +159,8 @@
       </div>
       <div class="row">
         <div class="col align-self-center text-center">
-          <a class="btn btn-outline-dark" href="max.html">1 Rep Max</a>
+          <h3>More Tools:</h3>
+          <a class="btn btn-link" href="max.html">1 Rep Max</a>
         </div>
       </div>
     </div>

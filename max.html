@@ -48,7 +48,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="card shadow-sm p-3 mb-5 bg-white rounded">
+        <div class="card shadow-sm p-3 mb-5 rounded">
           <div class="card-body">
             <form>
               <div class="mb-3">
@@ -72,12 +72,14 @@
                   placeholder="reps"
                 />
               </div>
-              <button type="submit" class="btn btn-primary">Caluclate</button>
-              <button type="reset" class="reset btn btn-danger">Reset</button>
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Caluclate</button>
+                <button type="reset" class="reset btn btn-danger">Reset</button>
+              </div>
             </form>
             <div class="card-body mt-2 results hide">
               <h3 class="text-center">1 Rep Max</h3>
-              <p class="text-center lead text-primary">
+              <p class="text-center lead text-success">
                 <span class="lead resultText"></span> lb
               </p>
             </div>
@@ -86,7 +88,8 @@
       </div>
       <div class="row">
         <div class="col align-self-center text-center">
-          <a class="btn btn-outline-dark" href="index.html">Plate Calculator</a>
+          <h3>More Tools:</h3>
+          <a class="btn btn-link" href="index.html">Plate Calculator</a>
         </div>
       </div>
     </div>
